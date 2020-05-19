@@ -1,0 +1,6 @@
+python-terraform
+urllib3
+ssh-paramiko
+requests
+paramiko
+loggers

@@ -1,0 +1,112 @@
+###############################,
+Panorama Section,
+###############################,
+,
+new_deployment,No
+platform,VMWare
+panorama_ip,52.255.150.247
+instance_type,N/A
+panorama_name,N/A
+panorama_license_type,N/A
+panorama_version,N/A
+panorama_username,panadmin
+panorama_password,JAqnS7ALnv#*4DFd
+serial,N/A
+,
+**** Section End ****,
+,
+###############################,
+Authentication Section,
+###############################,
+,
+auth_type,active-directory
+base_dn,"DC=ascensos,DC=net"
+bind_dn,"svc.palo.alto@ascensos.net"
+bind_password,Rxm6U22L7f64vE7!886$
+db_servers,"gswdsrv01.ascensos.net,10.212.2.5,389
+gswdsrv02.ascensos.net,10.212.2.6,389"
+user_id_agent_address,"10.212.97.60
+10.212.97.50
+10.213.17.50
+10.212.177.60
+10.212.2.100
+10.212.2.50
+10.212.17.60
+10.212.17.50"
+db_group_base_dn,"DC=ascensos,DC=net
+OU=Users,DC=ascensos,DC=net",
+,
+**** Section End ****,
+,
+###############################,
+Service Connection Setup Section,
+###############################,
+,
+infrastructure_subnet,172.17.0.0/19
+bgp_as,65534
+data_lake_region,europe
+,
+## Internal Domains ##,
+,
+domain1,ascensos.net
+dns_servers1,"10.212.2.5
+10.212.2.6"
+,
+**** Section End ****,
+,
+###############################,
+Service Connections Section,
+###############################,
+,
+## Service Connection 1 ##,
+,
+## IPSec Tunnel ##,
+,
+peer_ip,62.254.110.105,
+ipsec_secret,YVGPN6m42ZyRVJrjr4Mow7iA8k,
+encryption,"aes-128-cbc
+aes-192-cbc
+aes-256-cbc",
+authentication,"sha256
+sha384
+sha512",
+dh_group,"group5
+group14
+group20",
+,
+## IPSec End ##,
+,
+location,eu-west-2
+corporate_subnets,"10.212.0.0/16
+10.213.0.0/16"
+secondary_ipsec_tunnel,N/A
+bgp_peer_as,N/A
+bgp_peer_address,N/A
+bgp_local_address,N/A
+bgp_secret,N/A
+,
+**** Section End ****,
+,
+###############################,
+Mobile Users Portal Configuration Section,
+###############################,
+,,
+portal_name,ascensos,
+locations,"eu-west-2
+belgium
+netherlands-south
+france-south",
+emea_ip_pool,172.17.64.0/19,
+amer_ip_pool,172.18.0.0/16,
+apac_ip_pool,172.19.0.0/16,
+world_ip_pool,172.20.0.0/16,
+emea_domains,"ascensos.net
+10.212.2.5,10.212.2.6",
+amer_domains,"paloaltonetworks.com
+10.10.11.11,10.10.11.12",
+apac_domains,"google.com
+10.10.12.11,10.10.12.12",
+world_domains,"ascensos.net
+172.20.20.1,172.20.20.2",
+internal_host_detection,"gswgate1.ascensos.net
+10.212.1.40",

@@ -1,0 +1,595 @@
+/////////////
+// Provider
+/////////////
+
+
+variable "access_key" {
+  default = "AKIAVFK6UURB6VTP6LOJ"
+}
+
+variable "secret_key" {
+  default = "Zo3u7dchqBg6hoZg2jRp0JmeilFvWlbBCc5HVCQN"
+}
+
+variable "aws_key" {
+  default = "panw"
+}
+
+variable "aws_region" {
+  default = "eu-west-2"
+}
+
+
+//////////////
+// Bootstrap
+//////////////
+
+
+variable "bootstrap_s3bucket" {
+  default = "aws-transit-gateway-bootstrap-bucket-251019143333"
+}
+
+
+//////////////////
+// Load Balancer
+//////////////////
+
+
+variable "lb_access_log_bucket" {
+  default = "lb-access-log-bucket-04112019192530"
+}
+
+
+///////////////
+// Spoke VPC1
+///////////////
+
+
+variable "spoke-Vpc1-Name" {
+  default = "Spoke1"
+}
+
+variable "spoke-Vpc1-cidr" {
+  default = "10.1.0.0/16"
+}
+
+variable "spoke1-web-a" {
+  default = "10.1.1.0/24"
+}
+
+variable "spoke1-web-b" {
+  default = "10.1.2.0/24"
+}
+
+variable "web1_private_ip" {
+  default = "10.1.1.100"
+}
+
+variable "web2_private_ip" {
+  default = "10.1.2.100"
+}
+
+
+///////////////
+// Spoke VPC2
+///////////////
+
+
+variable "spoke-Vpc2-Name" {
+  default = "Spoke2"
+}
+
+variable "spoke-Vpc2-cidr" {
+  default = "10.2.0.0/16"
+}
+
+variable "spoke2-db-a" {
+  default = "10.2.1.0/24"
+}
+
+variable "spoke2-db-b" {
+  default = "10.2.2.0/24"
+}
+
+variable "ssh1_private_ip" {
+  default = "10.2.1.100"
+}
+
+variable "ssh2_private_ip" {
+  default = "10.2.2.100"
+}
+
+
+/////////////////
+// Services VPC
+/////////////////
+
+
+variable "services-Vpc-Name" {
+  default = "Services"
+}
+
+variable "services-Vpc-cidr" {
+  default = "10.3.0.0/16"
+}
+
+variable "Services-a" {
+  default = "10.3.1.0/24"
+}
+
+variable "Services-b" {
+  default = "10.3.2.0/24"
+}
+
+
+////////////////////
+// Security-In VPC
+////////////////////
+
+
+variable "security-In-Vpc-Name" {
+  default = "Security-In"
+}
+
+variable "security-In-Vpc-cidr" {
+  default = "10.255.0.0/16"
+}
+
+variable "security-In-Mgmt-a" {
+  default = "10.255.110.0/24"
+}
+
+variable "security-In-TGW-a" {
+  default = "10.255.1.0/24"
+}
+
+variable "security-In-Pub-a" {
+  default = "10.255.100.0/24"
+}
+
+variable "security-In-Priv-a" {
+  default = "10.255.11.0/24"
+}
+
+variable "security-In-Mgmt-b" {
+  default = "10.255.120.0/24"
+}
+
+variable "security-In-TGW-b" {
+  default = "10.255.2.0/24"
+}
+
+variable "security-In-Pub-b" {
+  default = "10.255.200.0/24"
+}
+
+variable "security-In-Priv-b" {
+  default = "10.255.12.0/24"
+}
+
+variable "security-In-fw1_name" {
+  default = "vmfw-sec-in-aza-1"
+}
+
+variable "security-In-fw1_mgmt_ip" {
+  default = "10.255.110.10"
+}
+
+variable "security-In-fw1_untrust_ip" {
+  default = "10.255.100.10"
+}
+
+variable "security-In-fw1_trust_ip" {
+  default = "10.255.11.10"
+}
+
+variable "security-In-fw2_name" {
+  default = "vmfw-sec-in-azb-1"
+}
+
+variable "security-In-fw2_mgmt_ip" {
+  default = "10.255.120.10"
+}
+
+variable "security-In-fw2_untrust_ip" {
+  default = "10.255.200.10"
+}
+
+variable "security-In-fw2_trust_ip" {
+  default = "10.255.12.10"
+}
+
+
+////////////////////
+// Security-Out VPC
+////////////////////
+
+
+variable "security-Out-Vpc-Name" {
+  default = "Security-Out"
+}
+
+variable "security-Out-Vpc-cidr" {
+  default = "10.254.0.0/16"
+}
+
+variable "security-Out-Mgmt-a" {
+  default = "10.254.110.0/24"
+}
+
+variable "security-Out-TGW-a" {
+  default = "10.254.1.0/24"
+}
+
+variable "security-Out-Pub-a" {
+  default = "10.254.100.0/24"
+}
+
+variable "security-Out-Mgmt-b" {
+  default = "10.254.120.0/24"
+}
+
+variable "security-Out-TGW-b" {
+  default = "10.254.2.0/24"
+}
+
+variable "security-Out-Pub-b" {
+  default = "10.254.200.0/24"
+}
+
+variable "security-Out-fw1_name" {
+  default = "vmfw-sec-out-aza-1"
+}
+
+variable "security-Out-fw1_mgmt_ip" {
+  default = "10.254.110.10"
+}
+
+variable "security-Out-fw1_untrust_ip" {
+  default = "10.254.100.10"
+}
+
+//variable "security-Out-fw1_trust_ip" {
+//  default = ""
+//}
+
+variable "security-Out-fw2_name" {
+  default = "vmfw-sec-out-azb-1"
+}
+
+variable "security-Out-fw2_mgmt_ip" {
+  default = "10.254.120.10"
+}
+
+variable "security-Out-fw2_untrust_ip" {
+  default = "10.254.200.10"
+}
+
+//variable "security-Out-fw2_trust_ip" {
+//  default = ""
+//}
+
+
+///////////////////////////
+// Security-East-West VPC
+///////////////////////////
+
+
+variable "security-East-West-Vpc-Name" {
+  default = "Security-East-West"
+}
+
+variable "security-East-West-Vpc-cidr" {
+  default = "10.253.0.0/16"
+}
+
+variable "security-East-West-Mgmt-a" {
+  default = "10.253.110.0/24"
+}
+
+variable "security-East-West-TGW-a" {
+  default = "10.253.1.0/24"
+}
+
+variable "security-East-West-Pub-a" {
+  default = "10.253.100.0/24"
+}
+
+variable "security-East-West-Mgmt-b" {
+  default = "10.253.120.0/24"
+}
+
+variable "security-East-West-TGW-b" {
+  default = "10.253.2.0/24"
+}
+
+variable "security-East-West-Pub-b" {
+  default = "10.253.200.0/24"
+}
+
+variable "security-East-West-fw1_name" {
+  default = "vmfw-sec-east-west-aza-1"
+}
+
+variable "security-East-West-fw1_mgmt_ip" {
+  default = "10.253.110.10"
+}
+
+variable "security-East-West-fw1_untrust_ip" {
+  default = "10.253.100.10"
+}
+
+//variable "security-East-West-fw1_trust_ip" {
+//  default = ""
+//}
+
+variable "security-East-West-fw2_name" {
+  default = "vmfw-sec-east-west-azb-1"
+}
+
+variable "security-East-West-fw2_mgmt_ip" {
+  default = "10.253.120.10"
+}
+
+variable "security-East-West-fw2_untrust_ip" {
+  default = "10.253.200.10"
+}
+
+//variable "security-East-West-fw2_trust_ip" {
+//  default = ""
+//}
+
+
+///////////////////////////////
+// Customer Gateway Variables
+///////////////////////////////
+
+
+variable "sec-out-asn" {
+  default = "65254"
+}
+
+variable "sec-east-west-asn" {
+  default = "65253"
+}
+
+
+////////////////////
+// Transit Gateway
+////////////////////
+
+
+variable "tgw_name" {
+  default = "transit_gateway"
+}
+
+variable "amazon_side_asn" {
+  default = "64512"
+}
+
+
+
+/////////////
+// Provider
+/////////////
+
+
+variable "access_key" {}
+
+variable "secret_key" {}
+
+variable "aws_key" {}
+
+variable "aws_region" {}
+
+
+//////////////
+// Bootstrap
+//////////////
+
+
+variable "bootstrap_s3bucket" {}
+
+
+//////////////////
+// Load Balancer
+//////////////////
+
+
+variable "lb_access_log_bucket" {}
+
+
+///////////////
+// Spoke VPC1
+///////////////
+
+
+variable "spoke-Vpc1-Name" {}
+
+variable "spoke-Vpc1-cidr" {}
+
+variable "spoke1-web-a" {}
+
+variable "spoke1-web-b" {}
+
+variable "web1_private_ip" {}
+
+variable "web2_private_ip" {}
+
+
+///////////////
+// Spoke VPC2
+///////////////
+
+
+variable "spoke-Vpc2-Name" {}
+
+variable "spoke-Vpc2-cidr" {}
+
+variable "spoke2-db-a" {}
+
+variable "spoke2-db-b" {}
+
+variable "ssh1_private_ip" {}
+
+variable "ssh2_private_ip" {}
+
+
+/////////////////
+// Services VPC
+/////////////////
+
+
+variable "services-Vpc-Name" {}
+
+variable "services-Vpc-cidr" {}
+
+variable "Services-a" {}
+
+variable "Services-b" {}
+
+
+////////////////////
+// Security-In VPC
+////////////////////
+
+
+variable "security-In-Vpc-Name" {}
+
+variable "security-In-Vpc-cidr" {}
+
+variable "security-In-Mgmt-a" {}
+
+variable "security-In-TGW-a" {}
+
+variable "security-In-Pub-a" {}
+
+variable "security-In-Priv-a" {}
+
+variable "security-In-Mgmt-b" {}
+
+variable "security-In-TGW-b" {}
+
+variable "security-In-Pub-b" {}
+
+variable "security-In-Priv-b" {}
+
+variable "security-In-fw1_name" {}
+
+variable "security-In-fw1_mgmt_ip" {}
+
+variable "security-In-fw1_untrust_ip" {}
+
+variable "security-In-fw1_trust_ip" {}
+
+variable "security-In-fw2_name" {}
+
+variable "security-In-fw2_mgmt_ip" {}
+
+variable "security-In-fw2_untrust_ip" {}
+
+variable "security-In-fw2_trust_ip" {}
+
+
+////////////////////
+// Security-Out VPC
+////////////////////
+
+
+variable "security-Out-Vpc-Name" {}
+
+variable "security-Out-Vpc-cidr" {}
+
+variable "security-Out-Mgmt-a" {}
+
+variable "security-Out-TGW-a" {}
+
+variable "security-Out-Pub-a" {}
+
+variable "security-Out-Mgmt-b" {}
+
+variable "security-Out-TGW-b" {}
+
+variable "security-Out-Pub-b" {}
+
+variable "security-Out-fw1_name" {}
+
+variable "security-Out-fw1_mgmt_ip" {}
+
+variable "security-Out-fw1_untrust_ip" {}
+
+//variable "security-Out-fw1_trust_ip" {
+//  default = ""
+//}
+
+variable "security-Out-fw2_name" {}
+
+variable "security-Out-fw2_mgmt_ip" {}
+
+variable "security-Out-fw2_untrust_ip" {}
+
+//variable "security-Out-fw2_trust_ip" {
+//  default = ""
+//}
+
+
+///////////////////////////
+// Security-East-West VPC
+///////////////////////////
+
+
+variable "security-East-West-Vpc-Name" {}
+
+variable "security-East-West-Vpc-cidr" {}
+
+variable "security-East-West-Mgmt-a" {}
+
+variable "security-East-West-TGW-a" {}
+
+variable "security-East-West-Pub-a" {}
+
+variable "security-East-West-Mgmt-b" {}
+
+variable "security-East-West-TGW-b" {}
+
+variable "security-East-West-Pub-b" {}
+
+variable "security-East-West-fw1_name" {}
+
+variable "security-East-West-fw1_mgmt_ip" {}
+
+variable "security-East-West-fw1_untrust_ip" {}
+
+//variable "security-East-West-fw1_trust_ip" {
+//  default = ""
+//}
+
+variable "security-East-West-fw2_name" {}
+
+variable "security-East-West-fw2_mgmt_ip" {}
+
+variable "security-East-West-fw2_untrust_ip" {}
+
+//variable "security-East-West-fw2_trust_ip" {
+//  default = ""
+//}
+
+
+///////////////////////////////
+// Customer Gateway Variables
+///////////////////////////////
+
+
+variable "sec-out-asn" {}
+
+variable "sec-east-west-asn" {}
+
+
+////////////////////
+// Transit Gateway
+////////////////////
+
+
+variable "tgw_name" {}
+
+variable "amazon_side_asn" {}

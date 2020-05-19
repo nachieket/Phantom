@@ -1,0 +1,182 @@
+###############################,
+Provider Section,Configure:Yes
+###############################,
+,
+access_key,access_key
+secret_key,secret_key
+aws_key,pyty
+aws_region,eu-west-2
+,
+**** Section End ****,
+,
+###############################,
+S3 Section,Configure:Yes
+###############################,
+,
+s3_bucket,aws-transit-gateway-s3-bucket-nj-241219
+,
+**** Section End ****,
+,
+###############################,
+LoadBalancer Section,Configure:Yes
+###############################,
+,
+lb_access_log_bucket,lb-access-log-bucket-04112019192530
+,
+**** Section End ****,
+,
+###############################,
+Services-VPC Section,Configure:Yes
+###############################,
+,
+services-Vpc-Name,Services
+services-Vpc-cidr,10.3.0.0/16
+Services-a,10.3.1.0/24
+Services-b,10.3.2.0/24
+js_services_private_ip,10.3.1.110
+ubuntu_aws_key,pyty
+,
+**** Section End ****,
+,
+###############################,
+Panorama Section,Configure:Yes
+###############################,
+,
+location,services-vpc
+credentials,admin:Q!w2e3R$
+mgmtpanoramaip,10.3.1.100
+panorama_instance_type,m4.2xlarge
+panorama_name,PANW-Panorama
+panorama_license_type,byol
+panorama_version,9.0.3
+panorama_serial,230942304204
+panorama_aws_key,pyty
+,
+**** Section End ****,
+,
+###############################,
+spoke_vpc1 Section,Configure:Yes
+###############################,
+,
+spoke-Vpc1-Name,Spoke1
+spoke-Vpc1-cidr,10.1.0.0/16
+spoke1-web-a,10.1.1.0/24
+spoke1-web-b,10.1.2.0/24
+web1_private_ip,10.1.1.100
+web2_private_ip,10.1.2.100
+,
+**** Section End ****,
+,
+###############################,
+spoke_vpc2 Section,Configure:Yes
+###############################,
+,
+spoke-Vpc2-Name,Spoke2
+spoke-Vpc2-cidr,10.2.0.0/16
+spoke2-db-a,10.2.1.0/24
+spoke2-db-b,10.2.2.0/24
+ssh1_private_ip,10.2.1.100
+ssh2_private_ip,10.2.2.100
+,
+**** Section End ****,
+,
+###############################,
+Security-In-VPC Section,Configure:Yes
+###############################,
+,
+security-In-Vpc-Name,Security-In
+security-In-Vpc-cidr,10.255.0.0/16
+security-In-Mgmt-a,10.255.110.0/24
+security-In-TGW-a,10.255.1.0/24
+security-In-Pub-a,10.255.100.0/24
+security-In-Priv-a,10.255.11.0/24
+security-In-Mgmt-b,10.255.120.0/24
+security-In-TGW-b,10.255.2.0/24
+security-In-Pub-b,10.255.200.0/24
+security-In-Priv-b,10.255.12.0/24
+security-In-fw1_name,vmfw-sec-in-aza-1
+security-In-fw1_mgmt_ip,10.255.110.10
+security-In-fw1_untrust_ip,10.255.100.10
+security-In-fw1_trust_ip,10.255.11.10
+security-In-fw2_name,vmfw-sec-in-azb-1
+security-In-fw2_mgmt_ip,10.255.120.10
+security-In-fw2_untrust_ip,10.255.200.10
+security-In-fw2_trust_ip,10.255.12.10
+security-In-fw1-authcode,I3425758
+security-In-fw2-authcode,I3425758
+fw_instance_type,m4.2xlarge
+ngfw_license_type,byol
+ngfw_version,9.0.3.xfr
+,
+**** Section End ****,
+,
+###############################,
+Security-Out-VPC Section,Configure:Yes
+###############################,
+,
+security-Out-Vpc-Name,Security-Out
+security-Out-Vpc-cidr,10.254.0.0/16
+security-Out-Mgmt-a,10.254.110.0/24
+security-Out-TGW-a,10.254.1.0/24
+security-Out-Pub-a,10.254.100.0/24
+security-Out-Mgmt-b,10.254.120.0/24
+security-Out-TGW-b,10.254.2.0/24
+security-Out-Pub-b,10.254.200.0/24
+security-Out-fw1_name,vmfw-sec-out-aza-1
+security-Out-fw1_mgmt_ip,10.254.110.10
+security-Out-fw1_untrust_ip,10.254.100.10
+security-Out-fw2_name,vmfw-sec-out-azb-1
+security-Out-fw2_mgmt_ip,10.254.120.10
+security-Out-fw2_untrust_ip,10.254.200.10
+security-Out-fw1-authcode,I3425758
+security-Out-fw2-authcode,I3425758
+fw_instance_type,m4.2xlarge
+ngfw_license_type,byol
+ngfw_version,9.0.3.xfr
+,
+**** Section End ****,
+,
+###############################,
+Security-East-West-VPC Section,Configure:Yes
+###############################,
+,
+security-East-West-Vpc-Name,Security-East-West
+security-East-West-Vpc-cidr,10.253.0.0/16
+security-East-West-Mgmt-a,10.253.110.0/24
+security-East-West-TGW-a,10.253.1.0/24
+security-East-West-Pub-a,10.253.100.0/24
+security-East-West-Mgmt-b,10.253.120.0/24
+security-East-West-TGW-b,10.253.2.0/24
+security-East-West-Pub-b,10.253.200.0/24
+security-East-West-fw1_name,vmfw-sec-east-west-aza-1
+security-East-West-fw1_mgmt_ip,10.253.110.10
+security-East-West-fw1_untrust_ip,10.253.100.10
+security-East-West-fw2_name,vmfw-sec-east-west-azb-1
+security-East-West-fw2_mgmt_ip,10.253.120.10
+security-East-West-fw2_untrust_ip,10.253.200.10
+security-East-West-fw1-authcode,I3425758
+security-East-West-fw2-authcode,I3425758
+fw_instance_type,m4.2xlarge
+ngfw_license_type,byol
+ngfw_version,9.0.3.xfr
+,
+**** Section End ****,
+,
+###############################,
+Customer-Gateway-Variables Section,Configure:Yes
+###############################,
+,
+sec-out-asn,65254
+sec-east-west-asn,65253
+,
+**** Section End ****,
+,
+###############################,
+Transit-Gateway Section,Configure:Yes
+###############################,
+,
+tgw_name,transit_gateway
+amazon_side_asn,64512
+,
+**** Section End ****,
+,

@@ -1,0 +1,5 @@
+Phantom
+
+The project to create Palo Alto Networks playbooks.
+
+The playbooks use Terraform and Python library created by Nachiket Joshi, Palo Alto Networks Sales Engineer.

@@ -1,0 +1,133 @@
+###############################,,
+Panorama Section,,
+###############################,,
+,,
+New_Deployment,Yes,
+Platform,AWS,
+Panorama_IP,10.10.1.100,
+Instance_Type,m4.2xlarge,
+Panorama_Name,Panorama,
+AWS_Key,panw,
+Panorama_License_Type,BYOL,
+Panorama_Version,9.0.6,
+credentials,admin:JAqnS7ALnv#*4DFd,
+serial,0007EV25105,
+,,
+**** Section End ****,,
+,,
+###############################,,
+AWS Section,,
+###############################,,
+,,
+access_key,access_key,
+secret_key,secret_key,
+aws_key,panw,
+aws_region,eu-west-2,
+bootstrap_s3bucket,aws-prisma-access-bucket-251019143333,
+VPC_Name,Default,
+VPC_ID,vpc-079f659a222441d7c,
+Subnet_ID,subnet-03c5c028172c0bb1b,
+,,
+**** Section End ****,,
+,,
+###############################,,
+Authentication Section,,
+###############################,,
+,,
+auth_type,active-directory,
+base_dn,"DC=Micro,DC=Com",
+bind_dn,admin@micro.com,
+bind_password,qwert,
+db_servers,"server1,10.10.10.1,389
+server2,10.10.10.2,389
+server3,10.10.10.3,389",
+user_id_agent_address,10.10.10.100,
+db_group_base_dn,"OU=Distribution Groups1,DC=christiegroup,DC=com
+OU=Distribution Groups2,DC=christiegroup,DC=com
+OU=Distribution Groups3,DC=christiegroup,DC=com",
+,,
+**** Section End ****,,
+,,
+###############################,,
+Service Connection Setup Section,,
+###############################,,
+,,
+infrastructure_subnet,192.168.10.0/24,
+bgp_as,65534,
+data_lake_region,europe,europe or americas
+,,
+## Internal Domains ##,,
+,,
+domain1,acme.com,
+dns_servers1,"10.10.10.1
+10.10.10.2",
+domain2,paloaltonetworks.com,
+dns_servers2,10.10.10.5,
+,,
+**** Section End ****,,
+,,
+###############################,,
+Service Connections Section,,
+###############################,,
+,,
+## Service Connection 1 ##,,
+,,
+## IPSec Tunnel ##,,
+,,
+peer_ip,1.1.1.1,
+ipsec_secret,qwert,
+encryption,"aes-128-cbc
+aes-192-cbc
+aes-256-cbc",
+authentication,"sha256
+sha384
+sha512",
+dh_group,"group5
+group14
+group20",
+,,
+## IPSec End ##,,
+,,
+location,eu-west-2,
+corporate_subnets,"10.10.10.0/24
+10.10.11.0/24
+10.10.12.0/24
+10.10.13.0/24
+10.10.14.0/24",
+secondary_ipsec_tunnel,N/A,
+bgp_peer_as,N/A,
+bgp_peer_address,N/A,
+bgp_local_address,N/A,
+bgp_secret,N/A,
+,,
+**** Section End ****,,
+,,
+###############################,,
+Mobile Users Portal Configuration Section,,
+###############################,,
+,,
+portal_name,phantom,
+locations,"eu-west-2
+belgium
+netherlands-south
+france-south
+us-east-1
+us-east-2
+india-north
+india-south",
+emea_ip_pool,"172.16.0.0/16
+172.17.0.0/16",
+amer_ip_pool,172.18.0.0/16,
+apac_ip_pool,172.19.0.0/16,
+world_ip_pool,"172.20.0.0/16
+172.21.0.0/16",
+emea_domains,"acme.com
+10.10.10.11,10.10.10.12",
+amer_domains,"paloaltonetworks.com
+10.10.11.11,10.10.11.12",
+apac_domains,"google.com
+10.10.12.11,10.10.12.12",
+world_domains,"world.com
+10.10.13.11",
+internal_host_detection,"nirzuk.paloaltonetworks.com
+10.10.10.1",

@@ -1,0 +1,236 @@
+class Miscellaneous(object):
+	"""Class for general methods and attributes"""
+
+	def __init__(self):
+		self.tgw = {}
+
+	def format_dict(self, csv, section):
+		csv.readline()
+		csv.readline()
+
+		self.tgw[section] = {}
+
+		for info in csv:
+			if 'Section End' in info:
+				break
+			elif (info.split(',')[0] and info.split(',')[1].rsplit('\n')[0]) == '':
+				pass
+			else:
+				self.tgw[section][info.split(',')[0]] = info.split(',')[1].rsplit('\n')[0]
+
+	def parse_tgw_file(self, filename):
+		"""Method to pull all information from csv file"""
+
+		self.tgw = {}
+
+		try:
+			csv = open(filename, 'r')
+		except Exception as e:
+			print('input csv file cannot be opened. Terminating the program. - {}'.format(e))
+			exit(-1)
+		else:
+			for line in csv:
+				if 'Provider Section' in line:
+					# csv.readline()
+					# csv.readline()
+
+					self.tgw['provider'] = {}
+					self.format_dict(csv, 'provider')
+					# self.tgw['provider'] = self.format_dict(csv)
+
+					# for info in csv:
+					# 	if 'Section End' in info:
+					# 		break
+					# 	elif (info.split(',')[0] and info.split(',')[1].rsplit('\n')[0]) == '':
+					# 		pass
+					# 	else:
+					# 		self.tgw['provider'][info.split(',')[0]] = info.split(',')[1].rsplit('\n')[0]
+				elif 'Bootstrap Section' in line:
+					# csv.readline()
+					# csv.readline()
+
+					self.tgw['bootstrap'] = {}
+					self.format_dict(csv, 'bootstrap')
+					# self.tgw['bootstrap'] = self.format_dict(csv)
+
+					# for info in csv:
+					# 	if 'Section End' in info:
+					# 		break
+					# 	elif (info.split(',')[0] and info.split(',')[1].rsplit('\n')[0]) == '':
+					# 		pass
+					# 	else:
+					# 		self.tgw['bootstrap'][info.split(',')[0]] = info.split(',')[1].rsplit('\n')[0]
+				elif 'LoadBalancer Section' in line:
+					# csv.readline()
+					# csv.readline()
+
+					self.tgw['lb'] = {}
+					self.format_dict(csv, 'lb')
+					# self.tgw['lb'] = self.format_dict(csv)
+
+					# for info in csv:
+					# 	if 'Section End' in info:
+					# 		break
+					# 	elif (info.split(',')[0] and info.split(',')[1].rsplit('\n')[0]) == '':
+					# 		pass
+					# 	else:
+					# 		self.tgw['lb'][info.split(',')[0]] = info.split(',')[1].rsplit('\n')[0]
+				elif 'spoke_vpc1 Section' in line:
+					# csv.readline()
+					# csv.readline()
+
+					self.tgw['vpc1'] = {}
+					self.format_dict(csv, 'vpc1')
+					# self.tgw['vpc1'] = self.format_dict(csv)
+
+					# for info in csv:
+					# 	if 'Section End' in info:
+					# 		break
+					# 	elif (info.split(',')[0] and info.split(',')[1].rsplit('\n')[0]) == '':
+					# 		pass
+					# 	else:
+					# 		self.tgw['vpc1'][info.split(',')[0]] = info.split(',')[1].rsplit('\n')[0]
+				elif 'spoke_vpc2 Section' in line:
+					# csv.readline()
+					# csv.readline()
+
+					self.tgw['vpc2'] = {}
+					self.format_dict(csv, 'vpc2')
+					# self.tgw['vpc2'] = self.format_dict(csv)
+
+					# for info in csv:
+					# 	if 'Section End' in info:
+					# 		break
+					# 	elif (info.split(',')[0] and info.split(',')[1].rsplit('\n')[0]) == '':
+					# 		pass
+					# 	else:
+					# 		self.tgw['vpc2'][info.split(',')[0]] = info.split(',')[1].rsplit('\n')[0]
+				elif 'services_vpc Section' in line:
+					# csv.readline()
+					# csv.readline()
+
+					self.tgw['services'] = {}
+					self.format_dict(csv, 'services')
+					# self.tgw['services'] = self.format_dict(csv)
+
+					# for info in csv:
+					# 	if 'Section End' in info:
+					# 		break
+					# 	elif (info.split(',')[0] and info.split(',')[1].rsplit('\n')[0]) == '':
+					# 		pass
+					# 	else:
+					# 		self.tgw['services'][info.split(',')[0]] = info.split(',')[1].rsplit('\n')[0]
+				elif 'Security-In-VPC Section' in line:
+					# csv.readline()
+					# csv.readline()
+
+					self.tgw['security-in'] = {}
+					self.format_dict(csv, 'security-in')
+					# self.tgw['security-in'] = self.format_dict(csv)
+
+					# for info in csv:
+					# 	if 'Section End' in info:
+					# 		break
+					# 	elif (info.split(',')[0] and info.split(',')[1].rsplit('\n')[0]) == '':
+					# 		pass
+					# 	else:
+					# 		self.tgw['security-in'][info.split(',')[0]] = info.split(',')[1].rsplit('\n')[0]
+				elif 'Security-Out-VPC Section' in line:
+					# csv.readline()
+					# csv.readline()
+
+					self.tgw['security-out'] = {}
+					self.format_dict(csv, 'security-out')
+					# self.tgw['security-out'] = self.format_dict(csv)
+
+					# for info in csv:
+					# 	if 'Section End' in info:
+					# 		break
+					# 	elif (info.split(',')[0] and info.split(',')[1].rsplit('\n')[0]) == '':
+					# 		pass
+					# 	else:
+					# 		self.tgw['security-out'][info.split(',')[0]] = info.split(',')[1].rsplit('\n')[0]
+				elif 'Security-East-West-VPC Section' in line:
+					# csv.readline()
+					# csv.readline()
+
+					self.tgw['security-ew'] = {}
+					self.format_dict(csv, 'security-ew')
+					# self.tgw['security-ew'] = self.format_dict(csv)
+
+					# for info in csv:
+					# 	if 'Section End' in info:
+					# 		break
+					# 	elif (info.split(',')[0] and info.split(',')[1].rsplit('\n')[0]) == '':
+					# 		pass
+					# 	else:
+					# 		self.tgw['security-ew'][info.split(',')[0]] = info.split(',')[1].rsplit('\n')[0]
+				elif 'Customer-Gateway-Variables Section' in line:
+					# csv.readline()
+					# csv.readline()
+
+					self.tgw['cgw'] = {}
+					self.format_dict(csv, 'cgw')
+					# self.tgw['cgw'] = self.format_dict(csv)
+
+					# for info in csv:
+					# 	if 'Section End' in info:
+					# 		break
+					# 	elif (info.split(',')[0] and info.split(',')[1].rsplit('\n')[0]) == '':
+					# 		pass
+					# 	else:
+					# 		self.tgw['cgw'][info.split(',')[0]] = info.split(',')[1].rsplit('\n')[0]
+				elif 'Transit-Gateway Section' in line:
+					# csv.readline()
+					# csv.readline()
+
+					self.tgw['self.tgw'] = {}
+					self.format_dict(csv, 'self.tgw')
+					# self.tgw['self.tgw'] = self.format_dict(csv)
+
+					# for info in csv:
+					# 	if 'Section End' in info:
+					# 		break
+					# 	elif (info.split(',')[0] and info.split(',')[1].rsplit('\n')[0]) == '':
+					# 		pass
+					# 	else:
+					# 		self.tgw['self.tgw'][info.split(',')[0]] = info.split(',')[1].rsplit('\n')[0]
+
+			return self.tgw
+
+
+		#
+		# 	dgw = re.sub(r'(\d\d*\d*)$', '1', maps['security-In-fw1_mgmt_ip'])
+		# 	netmask = Networking.get_netmask(maps['security-In-Mgmt-a'].split('/')[1])
+		#
+		# 	f.write(self.parameters[0] + '=' + 'dhcp-client' + '\n')
+		# 	f.write(self.parameters[1] + '=' + maps['security-In-fw1_mgmt_ip'] + '\n')
+		# 	f.write(self.parameters[2] + '=' + dgw + '\n')
+		# 	f.write(self.parameters[3] + '=' + netmask + '\n')
+		# 	f.write(self.parameters[4] + '=\n')
+		# 	f.write(self.parameters[5] + '=\n')
+		# 	f.write(self.parameters[6] + '=' + maps['security-In-fw1_name'] + '\n')
+		# 	f.write(self.parameters[7] + '=\n')
+		# 	f.write(self.parameters[8] + '=\n')
+		# 	f.write(self.parameters[9] + '=\n')
+		# 	f.write(self.parameters[10] + '=\n')
+		# 	f.write(self.parameters[11] + '=\n')
+		# 	f.write(self.parameters[12] + '=' + '4.2.2.2' + '\n')
+		# 	f.write(self.parameters[13] + '=' + '8.8.8.8' + '\n')
+		# 	f.write(self.parameters[14] + '=' + 'mgmt-interface-swap' + '\n')
+		# 	f.write(self.parameters[15] + '=\n')
+		# 	f.write(self.parameters[16] + '=\n')
+		# 	f.write(self.parameters[17] + '=\n')
+		# 	f.write(self.parameters[18] + '=\n')
+
+		# self.parameters = [
+		# 	'type', 'ip-address', 'default-gateway', 'netmask', 'ipv6-address', 'ipv6-default-gateway',
+		# 	'hostname', 'vm-auth-key', 'panorama-server', 'panorama-server-2', 'tplname', 'dgname',
+		# 	'dns-primary', 'dns-secondary', 'op-command-modes', 'dhcp-send-hostname', 'dhcp-send-client',
+		# 	'dhcp-accept-server-hostname', 'dhcp-accept-server-domain'
+		# ]
+
+
+https://3.10.232.165/api/?type=config&action=set&xpath=/config/devices/entry[@name='localhost.localdomain']&element=<template><entry name="security-In"><settings><default-vsys>vsys1</default-vsys></settings><config><devices><entry name="localhost.localdomain"><vsys><entry name="vsys1"/></vsys></entry></devices></config></entry></template>&key=LUFRPT1CWjZFOCs1M2g0cldabFU1aTBjS3hlTVZiRjg9TWRRbTFXNVR6UnlINmpnSXAvaFk4czFIZFpiZEFaRVJPaXZ5M01NeGRucWtYME8xWjJSNWtVeE55TkRsTVhJMA==
+
+<template><entry name="security-In"><settings><default-vsys>vsys1</default-vsys></settings><config><devices><entry name="localhost.localdomain"><vsys><entry name="vsys1"/></vsys></entry></devices></config></entry></template>
